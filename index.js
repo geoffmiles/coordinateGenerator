@@ -1,14 +1,41 @@
-function data(){
-	$.getJSON('https://raw.githubusercontent.com/geoffmiles/coordinateGenerator/dev/mapboxRoute.json', function coordinateGen() {
+var data = '{ "coordinates" : [' +
+'{ "lat":"-122.420017", "lng":"37.780096" },' +
+'{ "lat":"-122.42016", "lng":"37.780081" },' +
+'{ "lat":"-122.420324", "lng":"37.780074" },' +
+'{ "lat":"-122.420288", "lng":"37.779914" },' +
+'{ "lat":"-122.420137", "lng":"37.779153" },' +
+'{ "lat":"-122.419986", "lng":"37.778394" },' +
+'{ "lat":"-122.419952", "lng":"37.778223" },' +
+'{ "lat":"-122.419938", "lng":"37.77815" },' +
+'{ "lat":"-122.419769", "lng":"37.777289" },' +
+'{ "lat":"-122.419587", "lng":"37.776366" },' +
+'{ "lat":"-122.419492", "lng":"37.775894" },' +
+'{ "lat":"-122.419392", "lng":"37.775417" },' +
+'{ "lat":"-122.419361", "lng":"37.775272" },' +
+'{ "lat":"-122.419328", "lng":"37.775112" },' +
+'{ "lat":"-122.419295", "lng":"37.774952" },' +
+'{ "lat":"-122.419252", "lng":"37.774804" },' +
+'{ "lat":"-122.419216", "lng":"37.77469" },' +
+'{ "lat":"-122.418875", "lng":"37.773666" },' +
+'{ "lat":"-122.418702", "lng":"37.773081" },' +
+'{ "lat":"-122.418817", "lng":"37.77298" },' +
+'{ "lat":"-122.418972", "lng":"37.772857" },' +
+'{ "lat":"-122.419672", "lng":"37.772303" },' +
+'{ "lat":"-122.420209", "lng":"37.771888" },' +
+'{ "lat":"-122.420351", "lng":"37.771764" },' +
+'{ "lat":"-122.420311", "lng":"37.771648" },' +
+'{ "lat":"-122.420283", "lng":"37.771536" },' +
+'{ "lat":"-122.420197", "lng":"37.770403" },' +
+'{ "lat":"-122.420184", "lng":"37.770132" },' +
+'{ "lat":"-122.42018", "lng":"37.769996" },' +
+'{ "lat":"-122.419998", "lng":"37.77" } ]}';
 
-		var data = JSON.parse('https://raw.githubusercontent.com/geoffmiles/coordinateGenerator/dev/mapboxRoute.json');
-		var coord = routes.geometry.coordinates 
+var coord = JSON.parse(data);
+var i = 1;
 
-		function coordinateGen(){
-			for (i=0; i<=coord.length; i++) {
-				coord[i];
-				setTimeout(coordinateGen,1000);
-			}
-		};
-	});
+function coordinateGen(){
+	setTimeout(function(){
+	document.getElementById('val').innerHTML = coord.coordinates[i].lat + "," + coord.coordinates[i].lng;
+	i++;
+	if (i<=30){coordinateGen()}},3000);
 };

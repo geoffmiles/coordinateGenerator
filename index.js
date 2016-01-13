@@ -33,7 +33,7 @@ var data = '{ "coordinates" : [' +
 var coord = JSON.parse(data);
 var i = 1;
 
-function coordinateGen(){
+window.onload = function coordinateGen(){
 	setTimeout(function(){
 	document.getElementById('val').innerHTML = coord.coordinates[i].lat + "," + coord.coordinates[i].lng;
 	i++;
